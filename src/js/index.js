@@ -135,6 +135,6 @@ document.getElementById('convert-button').addEventListener('click', async () => 
             .catch(err => console.log('Error exporting Excel workbook.', err));
     }).catch(err => {
         console.error(err);
-        alert("Could not process the image. Supports only PNG, JPEG, BMP, and TIFF images.");
+        alert("Could not process the image. Supports only PNG, JPEG, BMP, and TIFF formats.");
     });
 });
