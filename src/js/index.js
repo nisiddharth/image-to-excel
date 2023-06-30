@@ -20,6 +20,8 @@ async function imageToExcel(imageFile, outputWidth, outputHeight, workbook) {
         const heightRatio = originalHeight / outputHeight;
 
         const sheet = workbook.addWorksheet('Sheet 1');
+        sheet.properties.defaultRowHeight = 15;
+        sheet.properties.defaultColWidth = 3;
 
         for (let y = 0; y < outputHeight; y++) {
             for (let x = 0; x < outputWidth; x++) {
