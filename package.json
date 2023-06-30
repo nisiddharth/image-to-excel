@@ -1,0 +1,21 @@
+{
+  "name": "img_to_xlsx",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build --dist-dir public"
+  },
+  "keywords": [],
+  "author": "nisiddharth",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.31.0",
+    "exceljs": "^4.3.0",
+    "jimp": "^0.3.11"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}

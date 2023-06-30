@@ -1,0 +1,105 @@
+body {
+    background-color: #282828;
+    color: #ebdbb2;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #fabd2f;
+}
+
+.drag-drop {
+    border: 2px dashed #928374;
+    padding: 20px;
+    text-align: center;
+    background-color: #3c3836;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    cursor: pointer;
+}
+
+.drag-drop-text {
+    color: #928374;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.file-input-label {
+    display: none;
+}
+
+.file-input-label+.file-input-display {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ebdbb2;
+}
+
+.file-input-label:hover {
+    text-decoration: underline;
+}
+
+.file-input-label input[type="file"] {
+    display: none;
+}
+
+.drag-drop p {
+    color: #928374;
+}
+
+.drag-drop input[type="file"] {
+    display: none;
+}
+
+.drag-drop:hover {
+    border-color: #fabd2f;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fe8019;
+}
+
+input[type="number"] {
+    width: 80px;
+    background-color: #3c3836;
+    color: #ebdbb2;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 3px #fabd2f;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #fabd2f;
+    color: #282828;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d79921;
+}
