@@ -13,13 +13,13 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nishchal.one/image-to-excel/">
-    <meta property="og:title" content="Image to Excel Pixels converter">
+    <meta property="og:title" content="Image to Excel Pixel Art converter">
     <meta property="og:description" content="Image to Excel Pixels Art converter using jimp and exceljs">
     <meta property="og:image" content="https://nishchal.one/image-to-excel/Mario-only.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="Image to Excel Pixels converter">
+    <meta property="twitter:url" content="Image to Excel Pixels Art converter">
     <meta property="twitter:creator" content="@nisiddharth">
     <meta property="twitter:title" content="Nishchal Siddharth">
     <meta property="twitter:description" content="Image to Excel Pixels Art converter using jimp and exceljs">
@@ -54,7 +54,11 @@
             <input type="number" id="output-width" min="1" value="48" onClick="this.select();">
             <label for="output-height">Output Height:</label>
             <input type="number" id="output-height" min="1" value="48" onClick="this.select();">
-            <br><br>
+            <div class="extra-small-text">
+                <p>Default values are set according to aspect ratio of input image. <a id="reset-aspect-ratio"
+                        href="#">Reset.</a></p>
+            </div>
+            <br>
             <hr>
             <button id="convert-button">Do the Magic <i class="fa-solid fa-wand-magic-sparkles"></i></i></button>
         </div>
@@ -70,8 +74,10 @@
             <p class="m-0 text-center"><i>Enlightenment leads to benightedness; Science entails nescience.</i></p>
             <br>
             <br>
-            <p style="font-size: 10px;"><i>We don't upload your files anywhere. All processing is done on your
-                    device.</i></p>
+            <div class="extra-small-text">
+                <p><b>Privacy Statement: </b>This website doesn't upload your files anywhere. All processing is done
+                    on your device, offline.</p>
+            </div>
         </div>
     </footer>
 

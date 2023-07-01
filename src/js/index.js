@@ -61,6 +61,19 @@ async function imageToExcel(imageFile, outputWidth, outputHeight, workbook) {
     });
 }
 
+// function to set the output-width and output-height values based on image resolution
+function setOutputDimensions(imageFile) {
+    Jimp.read(String(imageFile)).then(image => {
+        const originalWidth = image.bitmap.width;
+        const originalHeight = image.bitmap.height;
+        document.getElementById('output-width').value = Math.round(originalWidth / originalHeight * 48);
+        document.getElementById('output-height').value = 48;
+    }).catch(err => {
+        console.error(err);
+        alert("Unsupported format. Supports only PNG, JPEG, BMP, and TIFF formats.");
+    });
+}
+
 // Add event listeners to the drag-drop area for file dragging
 const dragDropArea = document.getElementById('drag-drop-area');
 const fileInputDisplay = document.getElementById('file-input-display');
@@ -90,9 +103,11 @@ dragDropArea.addEventListener('drop', (event) => {
         if (imageFile.type.startsWith('image/')) {
             document.getElementById('file-input').files = files;
             fileInputDisplay.textContent = imageFile.name;
+            var tmppath = URL.createObjectURL(imageFile);
+            setOutputDimensions(tmppath);
         } else {
             fileInputDisplay.textContent = "No file selected";
-            alert('Only image files are supported.');
+            alert('Only PNG, JPEG, BMP, and TIFF image files are supported.');
         }
     }
 });
@@ -101,12 +116,22 @@ document.getElementById('file-input').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
         fileInputDisplay.textContent = file.name;
+        var tmppath = URL.createObjectURL(file);
+        setOutputDimensions(tmppath);
     } else {
         fileInputDisplay.textContent = 'No file selected';
     }
 });
 
+document.getElementById('reset-aspect-ratio').addEventListener('click', () => {
+    const imageInput = document.getElementById('file-input');
+    if (imageInput.files.length === 0) {
+        return;
+    }
 
+    var tmppath = URL.createObjectURL(imageInput.files[0]);
+    setOutputDimensions(tmppath);
+});
 
 // Convert image to Excel on Convert button click
 document.getElementById('convert-button').addEventListener('click', async () => {
@@ -121,7 +146,7 @@ document.getElementById('convert-button').addEventListener('click', async () => 
 
     var tmppath = URL.createObjectURL(imageInput.files[0]);
 
-    console.log("init" + tmppath);
+    console.log("init");
     const workbook = new ExcelJS.Workbook();
     await imageToExcel(tmppath, outputWidth, outputHeight, workbook).then(() => {
         workbook.xlsx.writeBuffer()
